@@ -1,0 +1,27 @@
+<assembly xmlns="http://maven.apache.org/ASSEMBLY/2.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://maven.apache.org/ASSEMBLY/2.0.0 http://maven.apache.org/xsd/assembly-2.0.0.xsd">
+    <id>${project.version}</id>
+    <includeBaseDirectory>false</includeBaseDirectory>
+    <formats>
+        <format>zip</format>
+    </formats>
+    <fileSets>
+        <fileSet>
+            <directory>target/repo</directory>
+            <outputDirectory>meetme/repo</outputDirectory>
+            <excludes>
+                <exclude>maven-metadata-appassembler.xml</exclude>
+            </excludes>
+        </fileSet>
+        <fileSet>
+            <directory>target/bin</directory>
+            <outputDirectory>meetme/bin</outputDirectory>
+            <fileMode>0755</fileMode>
+            <lineEnding>unix</lineEnding>
+        </fileSet>
+        <fileSet>
+            <directory>src/main/resources</directory>
+            <outputDirectory>meetme/bin</outputDirectory>
+        </fileSet>
+    </fileSets>
+</assembly>
